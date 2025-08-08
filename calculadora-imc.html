@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="assets/css/calculadora.css">
 </head>
 <body>
-    <div class="container bg-white">
+    <div class="container bg-white my-5 p-4 border border-warning border-4 rounded">
         <div class="row">
-            <div class="col-lg-6">1coluna
-                <h2>Selecione</h2>
+            <div class="col-sm-6">1coluna
+                <h4>Selecione</h4>
                 <label>
                     <input type="radio" name="tipo" value="adulto"
                     onchange="atualizarSelecao('tipo')">
@@ -22,10 +22,10 @@
                     onchange="atualizarSelecao('tipo')">
                     <span class="opcao-texto" id="lblCrianca">Criança</span>
                 </label>
-                <p class="sub-info" id="infoIdade"></p>
+                <p class="text-muted small mt-2" id="infoIdade"></p>
             </div>
-            <div class="col-lg-6">2coluna
-                    <h2>Selecione</h2>
+            <div class="col-sm-6">2coluna
+                    <h4>Selecione</h4>
                     <label>
                         <input type="radio" name="tipoGenero" value="masculino"
                         onchange="atualizarGenero('tipoGenero')">
