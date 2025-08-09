@@ -8,84 +8,93 @@
     <link rel="stylesheet" href="assets/css/calculadora.css">
 </head>
 <body>
-    <div class="container bg-white my-5 p-4 border border-warning border-4 rounded">
+    <div class="container bg-white my-5 p-4 border border-warning border-2 rounded-3">
         <div class="row">
-            <div class="col-sm-6">1coluna
-                <h4>Selecione</h4>
-                <label>
-                    <input type="radio" name="tipo" value="adulto"
-                    onchange="atualizarSelecao('tipo')">
-                    <span class="opcao-texto ativo" id="lblAdulto">Adulto</span>
-                </label>
-                <label>
-                    <input type="radio" name="tipo" value="crianca"
-                    onchange="atualizarSelecao('tipo')">
-                    <span class="opcao-texto" id="lblCrianca">Criança</span>
-                </label>
-                <p class="text-muted small mt-2" id="infoIdade"></p>
+            <div class="col-6 col-sm-6 col-md-4">
+                <!--linha contendo o tipo adulto ou criança-->
+                <section class="row">
+                    <div class="col-12 ">
+                        <h4>Selecione</h4>
+                        <label>
+                            <input type="radio" name="tipo" value="adulto" onchange="atualizarSelecao('tipo')">
+                            <span id="lblAdulto">Adulto</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="tipo" value="crianca" onchange="atualizarSelecao('tipo')">
+                            <span id="lblCrianca">Criança</span>
+                        </label>
+                        <p class="text-muted small mt-2" id="infoIdade"></p>
+                    </div>
+                </section>
+                <!-- linha contendo peso, altura e idade -->
+                <section class="row">
+                    <div class="col-sm-4">
+                        <h5 class="mb-2"></h5>
+                        <label for="peso" class="form-label">Peso(Kg)</label>
+                        <input type="number" class="form-control" id="peso" step="0.1">
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="altura" class="form-label">Altura</label>
+                        <input type="number" class="form-control" id="altura" step="0.01">
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="idade" class="form-label">Idade</label>
+                        <select id="idade" class="form-select">
+                            <option value="">--</option>
+                        </select>
+                    </div>
+                </section>
             </div>
-            <div class="col-sm-6">2coluna
-                    <h4>Selecione</h4>
-                    <label>
-                        <input type="radio" name="tipoGenero" value="masculino"
-                        onchange="atualizarGenero('tipoGenero')">
-                        <span class="opcao-texto ativo" id="lblMasculino">Masculino</span>
-                    </label>
-                    <label>                            <input type="radio" name="tipoGenero" value="feminino"
-                         onchange="atualizarGenero('tipoGenero')">
-                        <span class="opcao-texto" id="lblFeminino">Feminino</span>
-                    </label>
-                    <p class="sub-info" id="infoGenero"></p>
-                </div>
-
+            <div class="col-6 col-sm-6 col-md-8 ">
+                <h4>Sexo biológico</h4>
+                <label>
+                    <input type="radio" name="sexo" value="masculino" onchange="atualizarSelecao('sexo')">
+                    <span id="lblMasculino">Masculino</span>
+                </label>
+                <label>
+                    <input type="radio" name="sexo" value="feminino" onchange="atualizarSelecao('sexo')">
+                    <span id="lblFeminino">Feminino</span>
+                </label>
+                <p class="sub-info" id="infoIdade"></p>
             </div>
         </div>
     </div>
 
+
+
     <script>
-        function atualizarSelecao(grupo)
-        {
-            console.log("entrei no atualizarSelecao" + grupo)
-            if(grupo === 'tipo')
-            {
+        function atualizarSelecao(grupo) {
+            console.log("Entrei no atualizarSelecao: " + grupo)
+            if (grupo === 'tipo') {
                 const tipoSelecionado = document.querySelector('input[name="tipo"]:checked').value;
                 const infoIdade = document.getElementById('infoIdade');
-                
-                if(tipoSelecionado == 'adulto')
-                {
+
+                if (tipoSelecionado === 'adulto') {
                     document.getElementById('lblAdulto').classList.add('laranja');
                     document.getElementById('lblCrianca').classList.remove('laranja');
-                    infoIdade.textContent = 'Acima de 19 anos';
+                    infoIdade.textContent = "Acima de 19 anos";
                 }
-                else
-                {
+                else {
                     document.getElementById('lblCrianca').classList.add('laranja');
                     document.getElementById('lblAdulto').classList.remove('laranja');
-                    infoIdade.textContent = 'Abaixo de 19 anos';
+                    infoIdade.textContent = "Abaixo de 19 anos";
                 }
             }
-        }
 
-        function atualizarGenero(grupo)
-        {
-            if(grupo === 'tipoGenero')
-            {
-                const tipoSelecionado = document.querySelector('input[name="tipoGenero"]:checked').value;
-                const infoIdade = document.getElementById('infoGenero');
-                
-                if(tipoSelecionado == 'masculino')
-                {
+            if (grupo === 'sexo') {
+                const tipoSelecionado = document.querySelector('input[name="sexo"]:checked').value;
+
+                if (tipoSelecionado === 'masculino') {
                     document.getElementById('lblMasculino').classList.add('laranja');
                     document.getElementById('lblFeminino').classList.remove('laranja');
                 }
-                else
-                {
+                else {
                     document.getElementById('lblFeminino').classList.add('laranja');
                     document.getElementById('lblMasculino').classList.remove('laranja');
                 }
             }
         }
     </script>
-
 </body>
+
 </html>
